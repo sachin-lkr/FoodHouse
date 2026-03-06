@@ -1,55 +1,31 @@
-import Home from "./components/Home/Home";
-import React from "react";
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
-import Frouts from "./components/Fruits/Fruits";
-import Dairy from "./components/Dairy/Dairy";
-import Meat from "./components/Meat/Meat";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import AllCategoury from "./components/AllCategoury/AllCategoury";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Navbar from "./components/Navbar";
+import Dairy from "./pages/Dairy";
+import Fruits from "./pages/Fruits";
+import Meat from "./pages/Meat";
+import AllCategoury from "./pages/AllCategoury"
+import Footer from "./components/Footer";
 
 
-function App(){
-  const router=createBrowserRouter([
-    {
-      path:"/",
-      element:<Home/>
-    },
-    {
-      path:"/fruits",
-      element:<>
-      <Navbar/>
-      <Frouts/>
+function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/dairy" element={<Dairy />} />
+        <Route path="/fruits" element={<Fruits />} />
+        <Route path="/meat" element={<Meat />} />
+        <Route path="/allcategoury" element={<AllCategoury />} />
+      </Routes>
       <Footer/>
-      </>
-    },
-     {
-      path:"/dairy",
-      element:<>
-      <Navbar/>
-      <Dairy/>
-      <Footer/>
-      </>
-    },
-     {
-      path:"/meat",
-      element:<>
-      <Navbar/>
-      <Meat/>
-      <Footer/>
-      </>
-    },
-     {
-      path:"/allCategoury",
-      element:<>
-      <Navbar/>
-      <AllCategoury/>
-      <Footer/>
-      </>
-    },
-  ])
-  return <RouterProvider router={router} />
-};
+    </BrowserRouter>
+  );
+}
+
 export default App;
-
