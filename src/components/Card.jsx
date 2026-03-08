@@ -2,10 +2,13 @@ import { FaHeart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { addItem } from "../Redux/slice";
+
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
+import { useState } from "react";
 
 function Card({ product }) {
+  const [liked, setLiked] = useState(false);
   if (!product) return null;
   const price = Number(product.price) || 0;
   const discount = product.discountPercent ?? 0;
@@ -29,6 +32,18 @@ function Card({ product }) {
       },
     }).showToast();
   };
+//  handleWishlist
+  const handleWishlist = () => {
+    setLiked(!liked);
+
+    dispatch(
+      AddWishlist({
+        id: product.id,
+        name: product.name,
+        image: product.image,
+      }),
+    );
+  };
 
   return (
     <div className="bg-gray-100 rounded-2xl shadow-md hover:shadow-xl transition duration-300 p-4 relative group">
@@ -38,8 +53,11 @@ function Card({ product }) {
         </div>
       )}
 
-      <div className="absolute top-3 right-3 text-gray-400 hover:text-orange-500 cursor-pointer text-2xl">
-        <FaHeart />
+      <div className="absolute top-3 right-3 text-gray-400 focus:text-orange-500 cursor-pointer text-2xl">
+        <FaHeart
+          onClick={handleWishlist}
+          className={liked ? "text-orange-500" : "text-gray-400"}
+        />
       </div>
 
       <div className="flex justify-center mb-3">
@@ -91,6 +109,7 @@ function Card({ product }) {
               name: product.name,
               image: product.image,
               price: finalPrice,
+              qty: "1",
             }),
           );
           showToast(product);

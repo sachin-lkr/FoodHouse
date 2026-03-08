@@ -9,6 +9,7 @@ import { RxCross2 } from "react-icons/rx";
 import CartCard from "../components/CartCard";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 function Navbar() {
   const [show, setShow] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,9 +27,13 @@ function Navbar() {
   const [subtotal, setSubtotal] = useState(0);
 
   const items = useSelector((state) => state.cart);
+ 
 
   useEffect(() => {
-    const total = items.reduce((sum, item) => sum + Number(item.price), 0);
+    const total = items.reduce(
+      (sum, item) => sum + Number(item.qty * item.price),
+      0,
+    );
     setSubtotal(total);
   }, [items]);
 
@@ -165,7 +170,7 @@ function Navbar() {
         <div className=" flex justify-between">
           <h1 className="text-xl font-bold text-orange-500 ">Order Items</h1>
           <RxCross2
-            className="text-2xl font-bold text-orange-500"
+            className="text-2xl font-bold text-orange-500 cursor-pointer"
             onClick={() => setCloseCart(false)}
           />
         </div>
@@ -176,25 +181,39 @@ function Navbar() {
           })}
         </div>
         {/* price count */}
-        <div className="border-y border-zinc-500 px-10">
-          <div className="flex justify-between pt-2">
-            <span>Subtotal</span>
-            <span className="text-orange-500">Rs {subtotal}/-</span>
+        {items.length > 0 ? (
+          <div>
+            <div className="border-y border-zinc-500 px-10">
+              <div className="flex justify-between pt-2">
+                <span>Subtotal</span>
+                <span className="text-orange-500">
+                  Rs {subtotal.toFixed(2)}/-
+                </span>
+              </div>
+              <div className="flex justify-between ">
+                <span>Delivery Fee</span>
+                <span className="text-orange-500">Rs 50/-</span>
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex justify-between px-10 my-2">
+                <span className="font-bold">Total</span>
+                <span className="font-bold">
+                  RS {(subtotal + 50).toFixed(2)}/-
+                </span>
+              </div>
+              <button className="text-center py-2 px-10 rounded-2xl bg-orange-500 text-white font-bold cursor-pointer">
+                Place Order
+              </button>
+            </div>
           </div>
-          <div className="flex justify-between ">
-            <span>Delivery Fee</span>
-            <span className="text-orange-500">Rs 50/-</span>
+        ) : (
+          <div className="w-full h-full flex justify-center items-center">
+            <h1 className="text-5xl font-bold text-orange-500">
+              Cart is Empty
+            </h1>
           </div>
-        </div>
-        <div className="flex flex-col">
-          <div className="flex justify-between px-10 my-2">
-            <span className="font-bold">Total</span>
-            <span className="text-orange-500">RS {subtotal + 50}/-</span>
-          </div>
-          <button className="text-center py-2 px-10 rounded-2xl bg-orange-500 text-white font-bold cursor-pointer">
-            Place Order
-          </button>
-        </div>
+        )}
       </nav>
 
       {/* Your Wishlist */}
@@ -210,13 +229,13 @@ function Navbar() {
         </div>
         {/* card Add */}
         <div className="max-h-[60vh] overflow-y-auto ">
-          <CartCard />
+            {/* wishlistCart section */}
         </div>
         {/* price count */}
         <div className="border-y border-zinc-500 px-10">
           <div className="flex justify-between py-2">
             <span className="font-bold">Total favorite items</span>
-            <span className="text-orange-500">5</span>
+            0
           </div>
         </div>
         <div className="flex flex-col mt-2">
