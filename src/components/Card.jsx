@@ -2,7 +2,7 @@ import { FaHeart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { addItem } from "../Redux/slice";
-
+import { AddWishlist } from "../Redux/wishlistSlice";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 import { useState } from "react";

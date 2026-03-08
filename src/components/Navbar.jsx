@@ -9,6 +9,7 @@ import { RxCross2 } from "react-icons/rx";
 import CartCard from "../components/CartCard";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import  WishlistCart  from "../components/WishlistCart";
 
 function Navbar() {
   const [show, setShow] = useState(true);
@@ -27,7 +28,6 @@ function Navbar() {
   const [subtotal, setSubtotal] = useState(0);
 
   const items = useSelector((state) => state.cart);
- 
 
   useEffect(() => {
     const total = items.reduce(
@@ -36,7 +36,8 @@ function Navbar() {
     );
     setSubtotal(total);
   }, [items]);
-
+ const wishlistItems = useSelector((state) => state.wishlist);
+ 
   return (
     <div
       className={`max-w-full mx-auto md:px-20 px-5 py-4  flex justify-between bg-white fixed top-0 right-0 left-0  z-50  ${isScrolled ? "drop-shadow-[0_4px_25px_rgba(0,0,0,0.1)]" : ""}`}
@@ -100,7 +101,7 @@ function Navbar() {
         >
           <FaHeart className="text-2xl text-orange-500" />
           <sup className="absolute -top-2 -right-2 min-w-[18px] h-[18px] flex items-center justify-center text-[10px] bg-orange-500 text-white rounded-full">
-            0
+            {wishlistItems.length}
           </sup>
         </div>
         <div
@@ -229,13 +230,15 @@ function Navbar() {
         </div>
         {/* card Add */}
         <div className="max-h-[60vh] overflow-y-auto ">
-            {/* wishlistCart section */}
+          {wishlistItems.map((item) => (
+            <WishlistCart key={item.id} item={item} />
+          ))}
         </div>
         {/* price count */}
         <div className="border-y border-zinc-500 px-10">
           <div className="flex justify-between py-2">
             <span className="font-bold">Total favorite items</span>
-            0
+            <span className="font-bold">{wishlistItems.length}</span>
           </div>
         </div>
         <div className="flex flex-col mt-2">

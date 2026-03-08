@@ -13,12 +13,13 @@ function CartCard({ items }) {
     >
       {/* left side */}
       <div className="flex justify-between items-center">
-        <div className="w-30 h-20 flex items-center justify-center cursor-pointer  ring-2 rounded-2xl overflow-hidden mr-4 ring-orange-500">
+        <div className="w-20 h-15 lg:w-30 lg:h-20 flex items-center justify-center cursor-pointer  ring-2 rounded-2xl overflow-hidden mr-4 ring-orange-500">
           <img src={image} alt={name} />
         </div>
         <div className="text-xl space-y-4">
           <h3>{name}</h3>
           <div className="w-[100px] items-center ring-2 text-orange-600 ring-orange-400 rounded-xl  flex justify-around items-center ">
+            {/* Increment */}
             <div
               className="cursor-pointer"
               onClick={() => {
@@ -28,6 +29,7 @@ function CartCard({ items }) {
               -
             </div>
             <div className="bg-zinc-300 px-2">{qty}</div>
+            {/* Decrement */}
             <div
               className="cursor-pointer"
               onClick={() => {
