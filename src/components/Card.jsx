@@ -35,6 +35,7 @@ function Card({ product }) {
 //  handleWishlist
   const handleWishlist = () => {
     setLiked(!liked);
+    showToast(product);
 
     dispatch(
       AddWishlist({
@@ -64,7 +65,7 @@ function Card({ product }) {
         <img
           src={product.image}
           alt={product.name}
-          className="w-28 h-28 object-contain group-hover:scale-110 transition duration-300"
+          className="w-40 h-40 object-contain group-hover:scale-110 transition duration-300"
         />
       </div>
 

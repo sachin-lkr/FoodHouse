@@ -33,14 +33,14 @@ function Categoury() {
   console.log(fruits[0].name);
   return (
     <section>
-      <div className="max-w-full h-full mx-auto md:px-20 px-5 md:py-10 py-5 ">
+      <div className="max-w-full h-full mx-auto md:px-20 px-5 md:py-20 py-5 ">
         <Header title1="Shop" title2="by Categoury" />
         {/* card container */}
         <div className=" md:mt-15 mt:5 md:flex md:gap-10 gap-5 ">
           {/* card */}
           {fruits.map((item) => (
             <div key={item.id} className="flex-1">
-              <div className=" w-full min-h-[30vh] relative -mb-15">
+              <div className=" w-full min-h-[30vh] sm:min-h-[10vh] lg:min-h-[30vh] relative -mb-15">
                 <img
                   src={item.image}
                   alt="fruits "

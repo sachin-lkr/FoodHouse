@@ -9,7 +9,7 @@ import { RxCross2 } from "react-icons/rx";
 import CartCard from "../components/CartCard";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import  WishlistCart  from "../components/WishlistCart";
+import WishlistCart from "../components/WishlistCart";
 
 function Navbar() {
   const [show, setShow] = useState(true);
@@ -36,8 +36,8 @@ function Navbar() {
     );
     setSubtotal(total);
   }, [items]);
- const wishlistItems = useSelector((state) => state.wishlist);
- 
+  const wishlistItems = useSelector((state) => state.wishlist);
+
   return (
     <div
       className={`max-w-full mx-auto md:px-20 px-5 py-4  flex justify-between bg-white fixed top-0 right-0 left-0  z-50  ${isScrolled ? "drop-shadow-[0_4px_25px_rgba(0,0,0,0.1)]" : ""}`}
@@ -94,7 +94,7 @@ function Navbar() {
         </div>
       </div>
       {/* icons */}
-      <div className="flex  gap-x-2 items-center ml-auto md:ml-2  ">
+      <div className="flex gap-x-2 md:gap-x-4 items-center  md:ml-2  ">
         <div
           className="cursor-pointer flex justify-center items-center relative"
           onClick={() => setFavorite(true)}
@@ -235,17 +235,28 @@ function Navbar() {
           ))}
         </div>
         {/* price count */}
-        <div className="border-y border-zinc-500 px-10">
-          <div className="flex justify-between py-2">
-            <span className="font-bold">Total favorite items</span>
-            <span className="font-bold">{wishlistItems.length}</span>
+        {wishlistItems.length > 0 ? (
+          <>
+            {" "}
+            <div className="border-y border-zinc-500 px-10">
+              <div className="flex justify-between py-2">
+                <span className="font-bold">Total favorite items</span>
+                <span className="font-bold">{wishlistItems.length}</span>
+              </div>
+            </div>
+            <div className="flex flex-col mt-2">
+              <button className="text-center py-2 px-10 rounded-2xl bg-orange-500 text-white font-bold cursor-pointer">
+                All clear
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="w-full h-full flex justify-center items-center">
+            <h1 className="text-4xl font-bold text-orange-500">
+              Wishlist is Empty
+            </h1>
           </div>
-        </div>
-        <div className="flex flex-col mt-2">
-          <button className="text-center py-2 px-10 rounded-2xl bg-orange-500 text-white font-bold cursor-pointer">
-            All clear
-          </button>
-        </div>
+        )}
       </nav>
     </div>
   );

@@ -1,8 +1,9 @@
 import foodhouse from"../assets/grocery.png";
 import Button from "../components/Button"
+import { NavLink } from "react-router-dom";
 function Hero(props){
     return(
-        <section className="max-w-full h-full mx-auto md:px-20 px-5 pt-20 md:pt-25 md:flex min-h-screen">
+        <section className="max-w-full h-full mx-auto md:px-20 px-5 pt-20 md:pt-25 md:flex lg:min-h-screen">
             {/* content Section */}
             <div className="flex-1/2 flex flex-col gap-y-4 mt-[40px] md:mt-[100px]">
                 <div className="inline-flex w-fit bg-amber-200 inline-flex px-4 py-2 rounded-full">
@@ -15,9 +16,9 @@ function Hero(props){
                 <div>
                     <p>Bred for a high content of beneficial substances. Our products are all fresh and healthy.</p>
                 </div>
-                <div>
+                < NavLink to="/allcategoury">
                     <Button title="Shop Now" />  
-                </div>
+                </ NavLink>
 
             </div>
             {/* Image Section */}

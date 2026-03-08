@@ -82,7 +82,7 @@ const About = () => {
 
       {/* Stats Section */}
       <section className="bg-gray-100 py-12">
-        <div className="max-w-6xl mx-auto px-5 md:px-20 grid md:grid-cols-4 gap-8 text-center">
+        <div className="max-w-6xl mx-auto px-5 md:px-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 
           <div>
             <h3 className="text-3xl font-bold text-orange-500">500+</h3>

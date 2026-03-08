@@ -1,11 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
 import { NavLink } from "react-router";
-
-
-import { FcLike } from "react-icons/fc";
-import { FaPlus } from "react-icons/fa6";
-import Button from "./Button";
 import productsList from "../data/products"
 import Card from "../components/Card"
 
@@ -44,7 +39,7 @@ function OurProducts() {
           })}
         </div>
         {/* Products listing*/}
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10 ">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 ">
           {renderCard}
         </div>
         {/* viwe all */}
