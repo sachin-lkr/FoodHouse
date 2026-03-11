@@ -42,11 +42,11 @@ https://github.com/sachin-lkr/FoodHouse
 
 1. Clone the repository
 
-- git clone https://github.com/your-username/foodhouse.git
+- git clone https://github.com/sachin-lkr/FoodHouse
 
 2. Go to project folder
 
- - cd foodhouse
+ - cd FoodHouse
 
 3. Install dependencies
 
