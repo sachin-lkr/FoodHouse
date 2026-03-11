@@ -1,16 +1,83 @@
-# React + Vite
+# 🍔 FoodHouse – E-Commerce Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FoodHouse is a modern E-Commerce web application built using React, Tailwind CSS, and Redux Toolkit.
+It provides a clean and responsive UI where users can browse food items and add them to the cart.
 
-Currently, two official plugins are available:
+This project focuses on frontend development, state management, and responsive UI design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+🛒 Add to Cart Functionality using Redux Toolkit
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+⚡ Fast and Interactive UI built with React
 
-## Expanding the ESLint configuration
+🎨 Modern Responsive Design using Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔄 State Management with Redux Toolkit
+
+📱 Responsive layout for different screen sizes
+
+## 🛠️ Tech Stack
+
+- React.js – Frontend library
+
+- Tailwind CSS – Styling and responsive UI
+
+- Redux Toolkit – State management
+
+- JavaScript (ES6) – Application logic
+## 🌐 Live Demo
+
+https://food-house-lake.vercel.app/
+## 📂 GitHub Repository
+
+https://github.com/sachin-lkr/FoodHouse
+
+## 📸 Project Preview
+
+
+/screenshots/homepage.png
+/screenshots/cart.png
+## 📦 Installation
+
+1. Clone the repository
+
+- git clone https://github.com/your-username/foodhouse.git
+
+2. Go to project folder
+
+ - cd foodhouse
+
+3. Install dependencies
+
+ - npm install
+
+4. Run the project
+
+ - npm run dev
+## 📌 Current Features
+
+- Product listing UI
+
+- Add to cart functionality
+
+- Cart state management with Redux
+
+- ❤️ Wishlist feature
+  
+- 🗂 Product filtering
+
+## 🔜 Upcoming Features
+
+- 🔍 Search functionality (Coming soon)
+
+- 💳 Checkout system
+
+
+## 👨‍💻 Author
+
+Sachin Kumar
+Frontend Developer
+
+GitHub:
+https://github.com/sachin-lkr
