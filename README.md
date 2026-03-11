@@ -35,9 +35,9 @@ https://github.com/sachin-lkr/FoodHouse
 
 ## 📸 Project Preview
 
+![Home Page](screenshots/foodhouseHome.png)
+![Cart Page](screenshots/cart.png)
 
-/screenshots/homepage.png
-/screenshots/cart.png
 ## 📦 Installation
 
 1. Clone the repository
